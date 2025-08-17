@@ -1,26 +1,23 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+	font-family: "TlwgTypo";
+	src: url("/fonts/TlwgTypo.otf") format("opentype");
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+	font-family: "Kinnari";
+	src: url("/fonts/Kinnari.otf") format("opentype");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+	--font-georgia: "Georgia", "Kinnari", serif;
+	--font-typo: "TlwgTypo", monospace;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+table td, table th {
+	vertical-align: top;
+	border: 1px solid #f2f2f2 !important;
+	padding: .35em .75em !important;
+	font-size: .9em;
 }
