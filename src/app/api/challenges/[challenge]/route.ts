@@ -6,7 +6,7 @@ const BASE_PANTRY_API = process.env.PANTRY_API;
 
 export async function POST(
     req: Request,
-    { params }: { params: { challenge: string } }
+    { params }: { params: Promise<{ challenge: string }> }
 ) {
     const { challenge } = await params;
     const {

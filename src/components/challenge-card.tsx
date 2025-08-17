@@ -45,16 +45,19 @@ export default function Challenge_Card(props: {
             setLoading(false);
             return;
         }
-        const req = await fetch(`/api/challenges/${props.title}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                flag: flag,
-                id: id,
-            }),
-        });
+        const req = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/challenges/${props.title}`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    flag: flag,
+                    id: id,
+                }),
+            }
+        );
         if (!req.ok) {
             console.log(req.statusText);
             setLoading(false);

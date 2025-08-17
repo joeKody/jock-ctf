@@ -17,13 +17,16 @@ export default function Home() {
                 return;
             }
 
-            const req = await fetch(`/api/users`, {
-                method: "POST",
-                body: JSON.stringify({
-                    username: newUsername,
-                    id: newId,
-                }),
-            });
+            const req = await fetch(
+                `${process.env.NEXT_PUBLIC_API_URL}/users`,
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        username: newUsername,
+                        id: newId,
+                    }),
+                }
+            );
 
             if (!req.ok) {
                 console.log(req.statusText);
@@ -57,7 +60,7 @@ export default function Home() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         setLoading(true);
         event.preventDefault();
-        const req = await fetch(`/api/users`, {
+        const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

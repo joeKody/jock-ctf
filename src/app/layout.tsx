@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./awsm.min.css";
 import "./globals.css";
 import Navbar from "@/components/navbar";
-import localFont from "next/font/local";
 
 /*
 const Norasi = localFont({

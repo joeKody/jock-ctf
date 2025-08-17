@@ -1,16 +1,19 @@
 export default async function Scoreboard() {
-    const req = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
+    const res = await fetch(`${process.env.PANTRY_API}`, {
         method: "GET",
     });
-
-    if (!req.ok) {
-        console.log(req.text);
+    if (!res.ok) {
+        return console.error(res.statusText);
     }
-    const data = await req.json();
+
+    const data = await res.json();
     const users: {
+        id: string;
         username: string;
         score: number;
+        solved: string[];
     }[] = data.users;
+    console.log(users);
 
     return (
         <main>
